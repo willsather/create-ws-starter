@@ -1,6 +1,6 @@
 import path from "node:path";
-import { uiConfig } from "@ws/vitest-config/ui";
 import react from "@vitejs/plugin-react-swc";
+import { uiConfig } from "@ws/vitest-config/ui";
 import { configDefaults, mergeConfig } from "vitest/config";
 
 export default mergeConfig(uiConfig, {
