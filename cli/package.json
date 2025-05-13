@@ -10,13 +10,7 @@
   "bin": {
     "create-ws-starter": "./dist/index.mjs"
   },
-  "files": [
-    "dist",
-    "templates",
-    "README.md",
-    "CHANGELOG.md",
-    "package.json"
-  ],
+  "files": ["dist", "templates", "README.md", "CHANGELOG.md", "package.json"],
   "license": "MIT",
   "keywords": [
     "nextjs",
