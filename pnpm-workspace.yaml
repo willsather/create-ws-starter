@@ -1,0 +1,5 @@
+packages:
+  - "web"
+  - "cli"
+  - "packages/*"
+  - "packages/config/*"

@@ -1,0 +1,30 @@
+{
+  "name": "@ws/root",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:cli": "turbo dev --filter=create-ws-app",
+    "dev:www": "turbo dev --filter=@ws/www",
+    "build": "turbo build",
+    "build:cli": "turbo build --filter=create-ws-app",
+    "build:www": "turbo build --filter=@ws/www",
+    "start": "turbo start",
+    "start:cli": "turbo start --filter=create-ws-app",
+    "start:www": "turbo start --filter=@ws/www",
+    "clean": "turbo clean && rm -rf node_modules",
+    "test": "turbo test",
+    "lint": "biome check",
+    "lint:fix": "biome check --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@ws/typescript-config": "workspace:*",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.10.6",
+    "turbo": "^2.5.0"
+  },
+  "packageManager": "pnpm@10.7.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
