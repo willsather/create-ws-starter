@@ -21,9 +21,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@ws/typescript-config": "workspace:*",
+    "@changesets/cli": "^2.29.3",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.10.6",
+    "@ws/typescript-config": "workspace:*",
     "turbo": "^2.5.0"
   },
   "packageManager": "pnpm@10.7.0",
