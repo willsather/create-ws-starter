@@ -1,8 +1,9 @@
 import * as p from "@clack/prompts";
-import chalk from "chalk";
 import { Command } from "commander";
 
+import { cancel } from "@clack/prompts";
 import { APP_NAME, DEFAULT_APP_NAME } from "./constants";
+import { getPackageManager } from "./utils/package-manager";
 import { validateAppName } from "./utils/validate";
 import { getVersion } from "./utils/version";
 
@@ -25,10 +26,6 @@ export const runCli = async (): Promise<Results> => {
       "The name of the application, as well as the name of the directory to create",
     )
     .version(getVersion(), "-v, --version", "Display the version number")
-    .addHelpText(
-      "afterAll",
-      `\n this ws starter was built by ${chalk.hex("#E8DCFF").underline("https://sather.ws")} \n`,
-    )
     .parse(process.argv);
 
   // user can specify name when running cli
@@ -64,6 +61,13 @@ export const runCli = async (): Promise<Results> => {
       },
     },
   );
+
+  if (project.turborepo && getPackageManager() !== "pnpm") {
+    cancel(
+      `You are using \`${getPackageManager()}\`, you must use \`pnpm\` to use Turborepo`,
+    );
+    process.exit(1);
+  }
 
   return {
     appName: project.name ?? defaults.appName,

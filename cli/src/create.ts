@@ -18,7 +18,7 @@ export const createProject = async ({
 
   const s = p.spinner();
 
-  s.start(`Scaffolding in: ${projectDir}...\n`);
+  s.start(`Scaffolding ${projectDir}...\n`);
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
@@ -27,22 +27,23 @@ export const createProject = async ({
           `${chalk.cyan.bold(projectName)} exists but is empty, continuing...\n`,
         );
     } else {
-      s.stop();
+      s.stop(
+        `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(projectName)} already exists and isn't empty.`,
+      );
       const overwriteDir = await p.select({
-        message: `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(
-          projectName,
-        )} already exists and isn't empty. How would you like to proceed?`,
+        message: "How would you like to proceed?",
         options: [
           {
-            label: "Abort installation (recommended)",
+            label: "Abort",
+            hint: "recommended",
             value: "abort",
           },
           {
-            label: "Clear the directory and continue installation",
+            label: "Clear the directory and continue",
             value: "clear",
           },
           {
-            label: "Continue installation and overwrite conflicting files",
+            label: "Continue and overwrite files",
             value: "overwrite",
           },
         ],
@@ -70,12 +71,14 @@ export const createProject = async ({
 
       if (overwriteDir === "clear") {
         s.message(
-          `Emptying ${chalk.cyan.bold(projectName)} and creating ws app..\n`,
+          `Emptying ${chalk.cyan.bold(projectName)} and creating ws app...\n`,
         );
         fs.emptyDirSync(projectDir);
       }
     }
   }
+
+  s.start(`Copying files to ${chalk.cyan.bold(projectName)} ...\n`);
 
   if (useTurborepo) {
     // full turborepo starter
@@ -96,7 +99,7 @@ export const createProject = async ({
   const scaffoldedName =
     projectName === "." ? "App" : chalk.cyan.bold(projectName);
 
-  s.stop(`${scaffoldedName} ${chalk.green("Created successfully!")}\n`);
+  s.stop(`${scaffoldedName} ${chalk.green("Created successfully!")}`);
 
   return projectDir;
 };
