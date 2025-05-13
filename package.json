@@ -14,7 +14,10 @@
     "clean": "turbo clean && rm -rf node_modules",
     "test": "turbo test",
     "lint": "biome check",
-    "lint:fix": "biome check --write"
+    "lint:fix": "biome check --write",
+    "changeset": "changeset",
+    "release": "turbo build && changeset publish",
+    "version-packages": "changeset version && pnpm i --no-frozen-lockfile && git add ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
