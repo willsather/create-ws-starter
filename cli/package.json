@@ -1,6 +1,6 @@
 {
   "name": "ws-starter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/willsather/ws-starter",
@@ -59,5 +59,7 @@
   "engines": {
     "node": ">=22"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
