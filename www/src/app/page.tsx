@@ -1,6 +1,7 @@
 import Image from "next/image";
-
 import Link from "next/link";
+
+import { CopyInstallCommand } from "@/app/copy";
 
 export default async function Home() {
   return (
@@ -56,6 +57,10 @@ export default async function Home() {
           </Link>
           .
         </p>
+
+        <div className="mt-4 mb-8">
+          <CopyInstallCommand />
+        </div>
       </div>
     </main>
   );
