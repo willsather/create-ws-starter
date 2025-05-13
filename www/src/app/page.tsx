@@ -36,8 +36,8 @@ export default async function Home() {
           and{" "}
           <Link className="font-bold underline" href="https://turbo.build">
             Turborepo
-          </Link>
-          projects, optimized for speed, scalability, and smooth DX
+          </Link>{" "}
+          projects that are optimized for speed, scalability, and smooth DX
           preconfigured with batteries included tools like{" "}
           <Link className="font-bold underline" href="https://tailwindcss.com">
             Tailwind
