@@ -3,6 +3,12 @@
 This CLI tool allows for fast creation of either a Next.js application or a Turborepo which will contain the basic
 scaffolding setup with batteries included `tailwind`, `shadcn/ui`, `biome`, and `vitest`.
 
+## Usage
+
+   ```shell 
+   pnpm create ws-starter
+   ```
+
 ## Getting Started
 
 To start using, you can use the following commands:
