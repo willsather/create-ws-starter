@@ -1,6 +1,6 @@
 {
   "name": "create-ws-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/willsather/create-ws-starter",
@@ -10,7 +10,13 @@
   "bin": {
     "create-ws-starter": "./dist/index.mjs"
   },
-  "files": ["dist", "templates", "README.md", "CHANGELOG.md", "package.json"],
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "CHANGELOG.md",
+    "package.json"
+  ],
   "license": "MIT",
   "keywords": [
     "nextjs",
