@@ -12,10 +12,8 @@ import { parseNameAndPath } from "./utils/name-path";
 import { printTitle } from "./utils/title";
 
 const main = async () => {
-  printTitle();
-
   intro(
-    `${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
+    `\n${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
   );
 
   const { appName, useTurborepo } = await runCli();
