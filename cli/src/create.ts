@@ -3,6 +3,7 @@ import * as p from "@clack/prompts";
 import chalk from "chalk";
 import fs from "fs-extra";
 
+import { cancel } from "@clack/prompts";
 import { PKG_ROOT } from "./constants";
 
 export interface CreateProjectOptions {
@@ -18,7 +19,7 @@ export const createProject = async ({
 
   const s = p.spinner();
 
-  s.start(`Scaffolding ${projectDir}...\n`);
+  s.start("Creating...");
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
@@ -51,7 +52,7 @@ export const createProject = async ({
       });
 
       if (p.isCancel(overwriteDir) || overwriteDir === "abort") {
-        s.stop("Aborting installation...");
+        cancel("Aborting installation...");
         process.exit(1);
       }
 
@@ -65,20 +66,17 @@ export const createProject = async ({
       });
 
       if (p.isCancel(confirmOverwriteDir) || !confirmOverwriteDir) {
-        s.stop("Aborting installation...");
+        cancel("Aborting installation...");
         process.exit(1);
       }
 
+      s.start("Continuing ...");
+
       if (overwriteDir === "clear") {
-        s.message(
-          `Emptying ${chalk.cyan.bold(projectName)} and creating ws app...\n`,
-        );
         fs.emptyDirSync(projectDir);
       }
     }
   }
-
-  s.start(`Copying files to ${chalk.cyan.bold(projectName)} ...\n`);
 
   if (useTurborepo) {
     // full turborepo starter
@@ -99,7 +97,7 @@ export const createProject = async ({
   const scaffoldedName =
     projectName === "." ? "App" : chalk.cyan.bold(projectName);
 
-  s.stop(`${scaffoldedName} ${chalk.green("Created successfully!")}`);
+  s.stop("Created successfully");
 
   return projectDir;
 };

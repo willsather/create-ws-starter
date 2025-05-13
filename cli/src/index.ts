@@ -1,5 +1,6 @@
 import path from "node:path";
 import { intro, outro } from "@clack/prompts";
+import * as p from "@clack/prompts";
 import chalk from "chalk";
 import fs from "fs-extra";
 import type { PackageJson } from "type-fest";
@@ -9,11 +10,12 @@ import { createProject } from "./create";
 import { installDependencies } from "./utils/install";
 import { logger } from "./utils/logger";
 import { parseNameAndPath } from "./utils/name-path";
-import { printTitle } from "./utils/title";
 
 const main = async () => {
+  console.log(); // blank line
+
   intro(
-    `\n${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
+    `${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
   );
 
   const { appName, useTurborepo } = await runCli();
@@ -25,16 +27,28 @@ const main = async () => {
     useTurborepo,
   });
 
-  // write name to package.json
-  const pkgJsonPath = path.join(projectDir, "package.json");
-  const pkgJson = fs.readJSONSync(pkgJsonPath) as PackageJson;
-  pkgJson.name = scopedAppName;
+  await p.tasks([
+    {
+      title: "Configuring...",
+      task: async () => {
+        const pkgJsonPath = path.join(projectDir, "package.json");
+        const pkgJson = fs.readJSONSync(pkgJsonPath) as PackageJson;
+        pkgJson.name = scopedAppName;
 
-  fs.writeJSONSync(path.join(projectDir, "package.json"), pkgJson, {
-    spaces: 2,
-  });
+        fs.writeJSONSync(path.join(projectDir, "package.json"), pkgJson, {
+          spaces: 2,
+        });
 
-  await installDependencies(projectDir);
+        return "Configured successfully";
+      },
+    },
+    {
+      title: "Installing dependencies",
+      task: async () => {
+        return await installDependencies(projectDir);
+      },
+    },
+  ]);
 
   outro(`${chalk.hex("#bbf7d0")("now go and ship")}`);
 
