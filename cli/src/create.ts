@@ -1,12 +1,9 @@
 import path from "node:path";
-import fs from "fs-extra";
-
 import * as p from "@clack/prompts";
 import chalk from "chalk";
-import ora from "ora";
+import fs from "fs-extra";
+
 import { PKG_ROOT } from "./constants";
-import { logger } from "./utils/logger";
-import { getPackageManager } from "./utils/package-manager";
 
 export interface CreateProjectOptions {
   projectName: string;
@@ -17,21 +14,20 @@ export const createProject = async ({
   projectName,
   useTurborepo,
 }: CreateProjectOptions) => {
-  const pkgManager = getPackageManager();
   const projectDir = path.resolve(process.cwd(), projectName);
 
-  logger.info(`\nUsing: ${chalk.cyan.bold(pkgManager)}\n`);
+  const s = p.spinner();
 
-  const spinner = ora(`Scaffolding in: ${projectDir}...\n`).start();
+  s.start(`Scaffolding in: ${projectDir}...\n`);
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
       if (projectName !== ".")
-        spinner.info(
+        s.message(
           `${chalk.cyan.bold(projectName)} exists but is empty, continuing...\n`,
         );
     } else {
-      spinner.stopAndPersist();
+      s.stop();
       const overwriteDir = await p.select({
         message: `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(
           projectName,
@@ -54,7 +50,7 @@ export const createProject = async ({
       });
 
       if (p.isCancel(overwriteDir) || overwriteDir === "abort") {
-        spinner.fail("Aborting installation...");
+        s.stop("Aborting installation...");
         process.exit(1);
       }
 
@@ -68,20 +64,18 @@ export const createProject = async ({
       });
 
       if (p.isCancel(confirmOverwriteDir) || !confirmOverwriteDir) {
-        spinner.fail("Aborting installation...");
+        s.stop("Aborting installation...");
         process.exit(1);
       }
 
       if (overwriteDir === "clear") {
-        spinner.info(
+        s.message(
           `Emptying ${chalk.cyan.bold(projectName)} and creating ws app..\n`,
         );
         fs.emptyDirSync(projectDir);
       }
     }
   }
-
-  spinner.start();
 
   if (useTurborepo) {
     // full turborepo starter
@@ -102,9 +96,7 @@ export const createProject = async ({
   const scaffoldedName =
     projectName === "." ? "App" : chalk.cyan.bold(projectName);
 
-  spinner.succeed(
-    `${scaffoldedName} ${chalk.green("Created successfully!")}\n`,
-  );
+  s.stop(`${scaffoldedName} ${chalk.green("Created successfully!")}\n`);
 
   return projectDir;
 };

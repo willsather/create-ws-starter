@@ -3,7 +3,6 @@ import { removeTrailingSlash } from "./trailing-slash";
 const validationRegExp =
   /^(?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/;
 
-//Validate a string against allowed package.json names
 export const validateAppName = (rawInput: string) => {
   const input = removeTrailingSlash(rawInput);
   const paths = input.split("/");

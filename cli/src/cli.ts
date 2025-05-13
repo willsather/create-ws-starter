@@ -2,7 +2,7 @@ import * as p from "@clack/prompts";
 import chalk from "chalk";
 import { Command } from "commander";
 
-import { CREATE_WS_APP, DEFAULT_APP_NAME } from "./constants";
+import { APP_NAME, DEFAULT_APP_NAME } from "./constants";
 import { validateAppName } from "./utils/validate";
 import { getVersion } from "./utils/version";
 
@@ -18,7 +18,7 @@ const defaults = {
 
 export const runCli = async (): Promise<Results> => {
   const program = new Command()
-    .name(CREATE_WS_APP)
+    .name(APP_NAME)
     .description("A CLI for creating web applications with the t3 stack")
     .argument(
       "[dir]",
@@ -48,8 +48,12 @@ export const runCli = async (): Promise<Results> => {
           }),
       }),
       turborepo: () => {
-        return p.confirm({
+        return p.select({
           message: "Would you like to use Turborepo?",
+          options: [
+            { value: true, label: "Yes" },
+            { value: false, label: "No" },
+          ],
           initialValue: false,
         });
       },

@@ -26,7 +26,7 @@ export default async function Home() {
           />
         </div>
 
-        <h1 className="mb-4 font-extrabold text-gray-900">create-ws-app</h1>
+        <h1 className="mb-4 font-extrabold text-gray-900">ws-starter</h1>
 
         <p className="mb-8 text-gray-600 text-lg">
           Simple, powerful CLI built to easily create{" "}

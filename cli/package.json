@@ -1,13 +1,13 @@
 {
-  "name": "create-ws-app",
+  "name": "ws-starter",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/willsather/create-ws-app",
+    "url": "https://github.com/willsather/ws-starter",
     "directory": "cli"
   },
   "bin": {
-    "create-ws-app": "./dist/index.mjs"
+    "ws-starter": "./dist/index.mjs"
   },
   "homepage": "https://create.sather.ws",
   "license": "MIT",
@@ -41,7 +41,6 @@
     "execa": "^9.5.3",
     "fs-extra": "^11.3.0",
     "next": "^15.2.3",
-    "ora": "^8.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "type-fest": "^4.41.0",

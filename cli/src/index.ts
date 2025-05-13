@@ -7,6 +7,7 @@ import { createProject } from "./create";
 import { logger } from "./utils/logger";
 import { parseNameAndPath } from "./utils/name-path";
 import { printTitle } from "./utils/title";
+import { installDependencies } from "./utils/install";
 
 const main = async () => {
   printTitle();
@@ -28,6 +29,9 @@ const main = async () => {
   fs.writeJSONSync(path.join(projectDir, "package.json"), pkgJson, {
     spaces: 2,
   });
+
+  // Install dependencies
+  await installDependencies(projectDir);
 
   process.exit(0);
 };
