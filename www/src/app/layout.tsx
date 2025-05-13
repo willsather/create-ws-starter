@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title: "create-ws-starter",
   description:
     "Create new Next.js and Turborepo application with batteries included Tailwind, shadcn/ui, Biome, and Vitest",
-  icons: [{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" }],
 };
 
 export default function RootLayout({
