@@ -1,9 +1,9 @@
 import path from "node:path";
 import * as p from "@clack/prompts";
+import { cancel } from "@clack/prompts";
 import chalk from "chalk";
 import fs from "fs-extra";
 
-import { cancel } from "@clack/prompts";
 import { PKG_ROOT } from "./constants";
 
 export interface CreateProjectOptions {

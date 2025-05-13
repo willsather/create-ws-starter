@@ -1,7 +1,7 @@
 import * as p from "@clack/prompts";
+import { cancel } from "@clack/prompts";
 import { Command } from "commander";
 
-import { cancel } from "@clack/prompts";
 import { APP_NAME, DEFAULT_APP_NAME } from "./constants";
 import { getPackageManager } from "./utils/package-manager";
 import { validateAppName } from "./utils/validate";
