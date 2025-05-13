@@ -15,7 +15,7 @@ const main = async () => {
   printTitle();
 
   intro(
-    `${chalk.hex("#bbf7d0").underline("ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
+    `${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
   );
 
   const { appName, useTurborepo } = await runCli();

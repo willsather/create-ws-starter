@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export function CopyInstallCommand() {
   const [copied, setCopied] = useState(false);
-  const command = "pnpm ws-starter";
+  const command = "pnpm create ws-starter";
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(command);

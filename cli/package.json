@@ -1,14 +1,14 @@
 {
-  "name": "ws-starter",
-  "version": "0.0.1",
+  "name": "create-ws-starter",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/willsather/ws-starter",
+    "url": "https://github.com/willsather/create-ws-starter",
     "directory": "cli"
   },
   "homepage": "https://create.sather.ws",
   "bin": {
-    "ws-starter": "./dist/index.mjs"
+    "create-ws-starter": "./dist/index.mjs"
   },
   "files": ["dist", "templates", "README.md", "CHANGELOG.md", "package.json"],
   "license": "MIT",

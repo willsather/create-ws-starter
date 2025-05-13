@@ -14,4 +14,4 @@ __      _____   ______   ___| |_ __ _ _ __| |_ ___ _ __
   \\_/\\_/ |___/          |___/\\__\\__,_|_|   \\__\\___|_|   
 `;
 export const DEFAULT_APP_NAME = "my-ws-app";
-export const APP_NAME = "ws-starter";
+export const APP_NAME = "create-ws-starter";

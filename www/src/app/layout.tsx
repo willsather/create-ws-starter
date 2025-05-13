@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 import "@ws/ui/styles/tailwind.css";
 
 export const metadata: Metadata = {
-  title: "ws-starter",
+  title: "create-ws-starter",
   description:
     "Create new Next.js and Turborepo application with batteries included Tailwind, shadcn/ui, Biome, and Vitest",
   icons: [{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" }],
