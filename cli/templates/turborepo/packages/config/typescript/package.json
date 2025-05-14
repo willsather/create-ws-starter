@@ -5,8 +5,5 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "vitest": "^3.1.3"
   }
 }
