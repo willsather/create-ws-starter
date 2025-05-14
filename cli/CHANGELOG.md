@@ -1,5 +1,12 @@
 # create-ws-starter
 
+## 0.0.3
+
+### Patch Changes
+
+- 39cf6f3: add git init and build task
+- ab9a972: fix turborepo template
+
 ## 0.0.2
 
 ### Patch Changes
