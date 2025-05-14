@@ -9,7 +9,8 @@
       ".next",
       ".vercel",
       ".idea",
-      ".turbo"
+      ".turbo",
+      "package.json"
     ]
   },
   "linter": {
