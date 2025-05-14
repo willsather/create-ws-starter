@@ -38,6 +38,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
+    "test": "node dist/index.mjs",
     "lint": "biome check",
     "lint:fix": "biome check --write"
   },
