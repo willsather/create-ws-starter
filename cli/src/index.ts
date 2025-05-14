@@ -6,8 +6,10 @@ import fs from "fs-extra";
 import type { PackageJson } from "type-fest";
 
 import { runCli } from "./cli";
-import { createProject } from "./create";
-import { installDependencies } from "./utils/install";
+import { buildProject } from "./tasks/build";
+import { createProject } from "./tasks/create";
+import { initializeGit } from "./tasks/git";
+import { installDependencies } from "./tasks/install";
 import { logger } from "./utils/logger";
 import { parseNameAndPath } from "./utils/name-path";
 
@@ -29,7 +31,7 @@ const main = async () => {
 
   await p.tasks([
     {
-      title: "Configuring...",
+      title: "Configuring project...",
       task: async () => {
         const pkgJsonPath = path.join(projectDir, "package.json");
         const pkgJson = fs.readJSONSync(pkgJsonPath) as PackageJson;
@@ -39,13 +41,25 @@ const main = async () => {
           spaces: 2,
         });
 
-        return "Configured successfully";
+        return "Configured project";
       },
     },
     {
-      title: "Installing dependencies",
+      title: "Installing dependencies...",
       task: async () => {
         return await installDependencies(projectDir);
+      },
+    },
+    {
+      title: "Building project...",
+      task: async () => {
+        return await buildProject(projectDir);
+      },
+    },
+    {
+      title: "Initializing Git...",
+      task: async () => {
+        return await initializeGit(projectDir);
       },
     },
   ]);

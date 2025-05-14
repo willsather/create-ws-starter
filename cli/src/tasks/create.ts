@@ -4,7 +4,7 @@ import { cancel } from "@clack/prompts";
 import chalk from "chalk";
 import fs from "fs-extra";
 
-import { PKG_ROOT } from "./constants";
+import { PKG_ROOT } from "../constants";
 
 export interface CreateProjectOptions {
   projectName: string;
@@ -19,7 +19,7 @@ export const createProject = async ({
 
   const s = p.spinner();
 
-  s.start("Creating...");
+  s.start("Creating project...");
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
@@ -97,7 +97,7 @@ export const createProject = async ({
   const scaffoldedName =
     projectName === "." ? "App" : chalk.cyan.bold(projectName);
 
-  s.stop("Created successfully");
+  s.stop("Created project");
 
   return projectDir;
 };
