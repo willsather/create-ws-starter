@@ -1,6 +1,6 @@
 {
   "name": "create-ws-starter",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/willsather/create-ws-starter",
@@ -10,13 +10,7 @@
   "bin": {
     "create-ws-starter": "./dist/index.mjs"
   },
-  "files": [
-    "dist",
-    "templates",
-    "README.md",
-    "CHANGELOG.md",
-    "package.json"
-  ],
+  "files": ["dist", "README.md", "CHANGELOG.md", "package.json"],
   "license": "MIT",
   "keywords": [
     "nextjs",
@@ -38,7 +32,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "test": "node dist/index.mjs",
+    "start": "node dist/index.mjs",
     "lint": "biome check",
     "lint:fix": "biome check --write"
   },
@@ -46,6 +40,7 @@
     "@clack/prompts": "^0.10.1",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
+    "degit": "^2.8.4",
     "execa": "^9.5.3",
     "fs-extra": "^11.3.0",
     "next": "^15.2.3",
@@ -56,12 +51,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@types/degit": "^2.8.6",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.10.4",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "tsup": "^8.4.0",
-    "typescript": "5.4.5"
+    "typescript": "5.8.3"
   },
   "packageManager": "pnpm@9.15.2",
   "engines": {

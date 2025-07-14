@@ -7,3 +7,8 @@ export const PKG_ROOT = path.join(distPath, "../");
 
 export const DEFAULT_APP_NAME = "my-ws-app";
 export const APP_NAME = "create-ws-starter";
+
+export const GITHUB_REPOS = {
+  nextjs: "willsather/nextjs-starter",
+  turborepo: "willsather/turborepo-starter",
+} as const;

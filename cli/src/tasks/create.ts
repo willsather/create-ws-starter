@@ -2,9 +2,10 @@ import path from "node:path";
 import * as p from "@clack/prompts";
 import { cancel } from "@clack/prompts";
 import chalk from "chalk";
+import degit from "degit";
 import fs from "fs-extra";
 
-import { PKG_ROOT } from "../constants";
+import { GITHUB_REPOS } from "../constants";
 
 export interface CreateProjectOptions {
   projectName: string;
@@ -19,7 +20,7 @@ export const createProject = async ({
 
   const s = p.spinner();
 
-  s.start("Creating project...");
+  s.start("Downloading template from GitHub...");
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
@@ -78,26 +79,20 @@ export const createProject = async ({
     }
   }
 
-  if (useTurborepo) {
-    // full turborepo starter
-    const srcDir = path.join(PKG_ROOT, "templates/turborepo");
-    fs.copySync(srcDir, projectDir);
-  } else {
-    // just the nextjs starter
-    const srcDir = path.join(PKG_ROOT, "templates/nextjs");
-    fs.copySync(srcDir, projectDir);
+  const repoName = useTurborepo ? GITHUB_REPOS.turborepo : GITHUB_REPOS.nextjs;
+  const emitter = degit(repoName, { cache: false, force: true });
+
+  try {
+    await emitter.clone(projectDir);
+  } catch (error) {
+    s.stop(chalk.redBright.bold("Failed to download template"));
+    cancel(
+      `Failed to clone template from GitHub: ${error instanceof Error ? error.message : String(error)}`,
+    );
+    process.exit(1);
   }
 
-  // to avoid conflicts with `/templates/.gitignore`
-  fs.renameSync(
-    path.join(projectDir, "_gitignore"),
-    path.join(projectDir, ".gitignore"),
-  );
-
-  const scaffoldedName =
-    projectName === "." ? "App" : chalk.cyan.bold(projectName);
-
-  s.stop("Created project");
+  s.stop("Template downloaded successfully");
 
   return projectDir;
 };
