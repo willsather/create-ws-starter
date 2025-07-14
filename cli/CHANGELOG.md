@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.0.2
+
+### Patch Changes
+
+- cfaa6f6: improve dependency management with git
+
 ## 0.0.3
 
 ### Patch Changes
