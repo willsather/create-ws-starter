@@ -1,4 +1,5 @@
 import pathModule from "node:path";
+
 import { removeTrailingSlash } from "./trailing-slash";
 
 /**

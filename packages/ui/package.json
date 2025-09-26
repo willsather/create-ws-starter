@@ -27,6 +27,9 @@
     "./components/*": "./src/components/*.tsx",
     "./lib/*": "./src/lib/*.ts",
     "./styles/*": "./src/styles/*",
-    "./hooks/*": ["./src/hooks/*.ts", "./src/hooks/*.tsx"]
+    "./hooks/*": [
+      "./src/hooks/*.ts",
+      "./src/hooks/*.tsx"
+    ]
   }
 }

@@ -8,7 +8,7 @@ export const installDependencies = async (projectDir: string) => {
   try {
     await execa(pkgManager, ["install"], { cwd: projectDir });
     return "Installed dependencies";
-  } catch (error) {
+  } catch {
     return "Failed to install dependencies. Please install them manually";
   }
 };

@@ -1,6 +1,6 @@
 import path from "node:path";
-import { intro, outro } from "@clack/prompts";
 import * as p from "@clack/prompts";
+import { intro, outro } from "@clack/prompts";
 import chalk from "chalk";
 import fs from "fs-extra";
 import type { PackageJson } from "type-fest";
