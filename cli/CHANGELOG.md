@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.0.5
+
+### Patch Changes
+
+- 4218f9a: fix release pipeline
+
 ## 0.0.6
 
 ### Patch Changes
