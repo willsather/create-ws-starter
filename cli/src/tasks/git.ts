@@ -1,5 +1,5 @@
-import fs from "fs-extra";
 import { execa } from "execa";
+import fs from "fs-extra";
 
 export async function cloneRepository(repoUrl: string, destination: string) {
   try {
