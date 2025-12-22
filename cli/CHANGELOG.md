@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.0.5
+
+### Patch Changes
+
+- 4c8a8b5: update dependencies
+
 ## 0.0.4
 
 ### Patch Changes
