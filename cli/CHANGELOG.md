@@ -1,5 +1,12 @@
 # create-ws-starter
 
+## 0.0.6
+
+### Patch Changes
+
+- 5e5a493: fix publishing oidc token
+- dcdef99: update node
+
 ## 0.0.5
 
 ### Patch Changes
