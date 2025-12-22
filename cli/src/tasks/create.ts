@@ -2,10 +2,10 @@ import path from "node:path";
 import * as p from "@clack/prompts";
 import { cancel } from "@clack/prompts";
 import chalk from "chalk";
-import degit from "degit";
 import fs from "fs-extra";
 
 import { GITHUB_REPOS } from "../constants";
+import { cloneRepository } from "./git";
 
 export interface CreateProjectOptions {
   projectName: string;
@@ -80,10 +80,10 @@ export const createProject = async ({
   }
 
   const repoName = useTurborepo ? GITHUB_REPOS.turborepo : GITHUB_REPOS.nextjs;
-  const emitter = degit(repoName, { cache: false, force: true });
+  const repoUrl = `https://github.com/${repoName}.git`;
 
   try {
-    await emitter.clone(projectDir);
+    await cloneRepository(repoUrl, projectDir);
   } catch (error) {
     s.stop(chalk.redBright.bold("Failed to download template"));
     cancel(
