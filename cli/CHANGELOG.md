@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- c654246: fix trusted publisher oidc settings
+
+## 0.0.5
+
+### Patch Changes
+
 - 4218f9a: fix release pipeline
 
 ## 0.0.6
