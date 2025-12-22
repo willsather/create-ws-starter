@@ -5,7 +5,7 @@
   "scripts": {},
   "devDependencies": {
     "@ws/typescript-config": "workspace:*",
-    "@types/node": "^22.14.0",
+    "@types/node": "^24.1.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4.1.4",
