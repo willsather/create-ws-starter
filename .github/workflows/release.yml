@@ -27,7 +27,6 @@ jobs:
         with:
           node-version-file: ".node-version"
           cache: "pnpm"
-          registry-url: "https://registry.npmjs.org"
 
       - name: Upgrade NPM
         run: npm install -g npm@latest
@@ -44,7 +43,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
-        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+        uses: changesets/action@v1
         with:
           publish: pnpm release
           version: pnpm version-packages
