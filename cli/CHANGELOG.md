@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- ffa7e98: fix: trusted publishing
+
+## 0.0.5
+
+### Patch Changes
+
 - 40571a2: fix: trusted publishing
 
 ## 0.0.5
