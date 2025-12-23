@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- cb8c0a9: trusted publisher oidc
+
+## 0.0.5
+
+### Patch Changes
+
 - c654246: fix trusted publisher oidc settings
 
 ## 0.0.5
