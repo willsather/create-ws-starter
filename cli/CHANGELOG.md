@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- 49de006: fix npm trusted publishing
+
+## 0.0.5
+
+### Patch Changes
+
 - 6a89921: fix github trusted publishing
 
 ## 0.0.5
