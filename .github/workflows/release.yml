@@ -30,7 +30,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Upgrade NPM
-        run: npm install -g npm@11.5.0
+        run: npm install -g npm@latest
 
       - name: Install Dependencies
         run: pnpm install
