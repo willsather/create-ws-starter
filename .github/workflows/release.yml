@@ -32,6 +32,13 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
+      - name: Debug Node/NPM
+        run: |
+          node -v
+          npm -v
+          which npm
+          npm config get registry
+
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
