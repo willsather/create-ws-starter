@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "https://github.com/willsather/create-ws-starter",
+    "url": "git+https://github.com/willsather/create-ws-starter.git",
     "directory": "cli"
   },
   "homepage": "https://create.sather.ws",
