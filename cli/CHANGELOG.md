@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.0.5
+
+### Patch Changes
+
+- 86fe3ee: trusted publishing
+
 ## 0.0.4
 
 ### Patch Changes
