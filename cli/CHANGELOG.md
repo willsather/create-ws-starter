@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.0.5
+
+### Patch Changes
+
+- ff13975: trusted publishing
+
 ## 0.0.4
 
 ### Patch Changes
