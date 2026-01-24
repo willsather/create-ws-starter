@@ -1,12 +1,15 @@
 {
   "name": "create-ws-starter",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willsather/create-ws-starter.git",
     "directory": "cli"
   },
   "homepage": "https://create.sather.ws",
+  "publishConfig": {
+    "provenance": true
+  },
   "bin": {
     "create-ws-starter": "./dist/index.mjs"
   },
