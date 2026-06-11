@@ -1,0 +1,65 @@
+# create-ws-starter
+
+> A CLI for scaffolding Next.js apps and Turborepo monorepos with batteries-included tooling: Tailwind CSS, shadcn/ui, Biome, and Vitest. The CLI is fully non-interactive when driven by an agent or CI — every prompt has a corresponding flag.
+
+The CLI clones a starter template from GitHub, renames the package, installs dependencies, builds, and initializes git. When run without a TTY (e.g. by an AI agent or in CI) or with `--yes`, it never prompts — it uses the provided flags and defaults instead.
+
+## Quick start
+
+Scaffold a Next.js app (no prompts) — runs install, build, and git init by default:
+
+```sh
+npx create-ws-starter@latest my-app --yes
+```
+
+Scaffold a Turborepo monorepo (requires pnpm):
+
+```sh
+pnpm create ws-starter my-app --turborepo
+```
+
+## Options
+
+- `[dir]` — positional argument: the app name and the directory to create. Must be lowercase alphanumeric with `-` or `_`. Use `.` to scaffold into the current directory. Supports scoped names like `@scope/app`.
+- `--turborepo` — scaffold a Turborepo monorepo instead of a single Next.js app (requires pnpm). Default: Next.js single app.
+- `--no-install` — skip installing dependencies.
+- `--no-git` — skip initializing a git repository.
+- `--no-build` — skip building the project.
+- `--overwrite` — clear the target directory and continue if it already exists and is not empty. Required in non-interactive mode when the directory is not empty (otherwise the CLI aborts).
+- `--pm <manager>` — package manager to use: `npm`, `pnpm`, `yarn`, or `bun`. Defaults to the package manager that invoked the CLI.
+- `-y, --yes` — skip all prompts and use defaults / provided flags (non-interactive). Implied automatically when there is no interactive terminal.
+- `-v, --version` — print the version.
+- `-h, --help` — print help.
+
+## Behavior notes
+
+- Non-interactive mode is entered automatically when stdout is not a TTY (agents, CI) or when `--yes` is passed. No flag combination will block on a prompt.
+- `--turborepo` requires pnpm; the CLI exits with an error if another package manager is selected.
+- If the positional `[dir]` is omitted in non-interactive mode, the default name `my-ws-app` is used.
+
+## Agent skill
+
+This repo ships an agent skill that teaches coding agents how to drive the CLI
+non-interactively. Install it into your agent with the `skills` CLI (https://github.com/vercel-labs/skills):
+
+```sh
+# add the skill from the repo (resolves the SKILL.md automatically)
+npx skills add willsather/create-ws-starter
+
+# or target the skill directory explicitly
+npx skills add https://github.com/willsather/create-ws-starter/tree/main/.claude/skills/create-ws-starter
+```
+
+It installs to your agent's config directory (e.g. `.claude/skills/create-ws-starter/SKILL.md`).
+List or search skills with `npx skills add willsather/create-ws-starter --list` and `npx skills find`.
+
+## Templates
+
+- Next.js app — https://github.com/willsather/nextjs-starter
+- Turborepo monorepo — https://github.com/willsather/turborepo-starter
+
+## Links
+
+- Homepage — https://create.sather.ws
+- Repository — https://github.com/willsather/create-ws-starter
+- npm — https://www.npmjs.com/package/create-ws-starter

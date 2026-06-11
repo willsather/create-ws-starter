@@ -1,64 +1,44 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { CopyInstallCommand } from "@/app/copy";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center overflow-hidden p-6">
-      <div className="absolute inset-0">
-        <div className="-z-10 absolute inset-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-white [background-size:16px_16px]" />
-      </div>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black p-6 text-white">
+      <Link
+        href="https://sather.ws"
+        className="group absolute top-6 left-6 flex items-center gap-2 text-neutral-400 text-sm transition-colors hover:text-white"
+      >
+        <svg
+          viewBox="0 0 196 196"
+          xmlns="http://www.w3.org/2000/svg"
+          role="graphics-symbol"
+          aria-label="Will Sather"
+          fill="currentColor"
+          width="20"
+          height="20"
+          className="mt-0.5"
+        >
+          <path d="M78.559 105.07L89.879 124.56C89.9168 124.624 89.9368 124.696 89.9368 124.77C89.9368 124.844 89.9168 124.917 89.879 124.98L72.659 154.39C72.623 154.452 72.5712 154.504 72.5089 154.54C72.4466 154.576 72.3759 154.595 72.304 154.595C72.232 154.595 72.1613 154.576 72.099 154.54C72.0367 154.504 71.985 154.452 71.949 154.39L8.34897 41.61C8.31401 41.5475 8.29606 41.4768 8.2969 41.4052C8.29775 41.3335 8.31736 41.2633 8.35378 41.2016C8.3902 41.1399 8.44216 41.0888 8.50448 41.0534C8.5668 41.0181 8.63731 40.9996 8.70897 41H31.849C31.9223 40.9996 31.9943 41.0189 32.0576 41.0559C32.121 41.0928 32.1732 41.146 32.209 41.21L71.979 112.26C72.0129 112.322 72.0622 112.374 72.122 112.411C72.1818 112.448 72.2502 112.469 72.3205 112.472C72.3909 112.475 72.4608 112.46 72.5236 112.428C72.5863 112.396 72.6399 112.349 72.679 112.29L77.869 105.04C77.9085 104.984 77.9616 104.938 78.0234 104.908C78.0851 104.878 78.1534 104.863 78.2222 104.866C78.2909 104.869 78.3578 104.889 78.4166 104.925C78.4755 104.961 78.5244 105.011 78.559 105.07Z" />
+          <path d="M135.908 62.36L155.258 97.79C155.293 97.8532 155.31 97.9244 155.308 97.9963C155.306 98.0683 155.286 98.1386 155.248 98.2L120.858 154.42C120.822 154.482 120.77 154.534 120.708 154.57C120.646 154.606 120.575 154.625 120.503 154.625C120.431 154.625 120.361 154.606 120.298 154.57C120.236 154.534 120.184 154.482 120.148 154.42L54.3782 41.62C54.3412 41.5579 54.3212 41.4872 54.3203 41.4149C54.3195 41.3426 54.3377 41.2714 54.3733 41.2084C54.4088 41.1455 54.4604 41.0931 54.5227 41.0565C54.585 41.0199 54.6559 41.0004 54.7282 41H77.7382C77.8115 40.9996 77.8835 41.0189 77.9469 41.0559C78.0102 41.0928 78.0624 41.146 78.0982 41.21L120.568 115.78C120.604 115.842 120.656 115.894 120.718 115.93C120.781 115.966 120.851 115.985 120.923 115.985C120.995 115.985 121.066 115.966 121.128 115.93C121.19 115.894 121.242 115.842 121.278 115.78L131.728 98.2C131.766 98.1386 131.786 98.0683 131.788 97.9963C131.79 97.9244 131.773 97.8532 131.738 97.79L100.848 41.61C100.813 41.5475 100.795 41.4768 100.796 41.4052C100.797 41.3335 100.817 41.2633 100.853 41.2016C100.889 41.1399 100.941 41.0888 101.004 41.0534C101.066 41.0181 101.137 40.9996 101.208 41H186.308C186.38 40.9996 186.45 41.0181 186.513 41.0534C186.575 41.0888 186.627 41.1399 186.663 41.2016C186.7 41.2633 186.719 41.3335 186.72 41.4052C186.721 41.4768 186.703 41.5475 186.668 41.61L166.778 77.75C166.744 77.8117 166.695 77.8635 166.635 77.9006C166.575 77.9377 166.507 77.9588 166.437 77.9618C166.366 77.9648 166.296 77.9497 166.234 77.9178C166.171 77.886 166.117 77.8385 166.078 77.78L155.538 61.89C155.501 61.8345 155.45 61.789 155.391 61.7577C155.331 61.7263 155.265 61.7099 155.198 61.71L136.268 61.75C136.197 61.7496 136.126 61.7681 136.064 61.8034C136.001 61.8388 135.949 61.8899 135.913 61.9516C135.877 62.0133 135.857 62.0835 135.856 62.1552C135.855 62.2268 135.873 62.2975 135.908 62.36Z" />
+        </svg>
+        <span className="group-hover:underline">made by sather.ws</span>
+      </Link>
 
-      <div className="relative z-20 mx-auto flex max-w-4xl flex-col items-center justify-center text-center">
-        <div className="mb-10 flex items-center justify-center gap-6">
-          <Image
-            src="/nextjs.svg"
-            alt="Next.js Logo"
-            width={100}
-            height={100}
-          />
-          <span className="font-bold text-3xl">+</span>
-          <Image
-            src="/turborepo.svg"
-            alt="Turborepo Logo"
-            width={100}
-            height={100}
-          />
-        </div>
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <h1 className="font-extrabold text-5xl tracking-tight sm:text-7xl">
+          ws starter
+        </h1>
 
-        <h1 className="mb-4 font-extrabold text-gray-900">create-ws-starter</h1>
-
-        <p className="mb-8 text-gray-600 text-lg">
-          Simple, powerful CLI built to easily create{" "}
-          <Link className="font-bold underline" href="https://nextjs.org">
-            Next.js
-          </Link>{" "}
-          and{" "}
-          <Link className="font-bold underline" href="https://turbo.build">
-            Turborepo
-          </Link>{" "}
-          projects that are optimized for speed, scalability, and smooth DX
-          preconfigured with batteries included tools like{" "}
-          <Link className="font-bold underline" href="https://tailwindcss.com">
-            Tailwind
-          </Link>
-          ,{" "}
-          <Link className="font-bold underline" href="https://ui.shadcn.com">
-            shadcn/ui
-          </Link>
-          ,{" "}
-          <Link className="font-bold underline" href="https://biomejs.dev">
-            Biome
-          </Link>
-          , and{" "}
-          <Link className="font-bold underline" href="https://vitest.dev">
-            Vitest
-          </Link>
-          .
+        <p className="mt-8 max-w-2xl text-lg text-neutral-500 leading-relaxed">
+          <code className="rounded-md bg-neutral-800 px-2 py-1 font-mono text-base text-neutral-200">
+            create-ws-starter
+          </code>{" "}
+          scaffolds ready-to-build Next.js apps and Turborepo monorepos
+          preconfigured with design system and dev dependencies wired up.
         </p>
 
-        <div className="mt-4 mb-8">
+        <div className="mt-12">
           <CopyInstallCommand />
         </div>
       </div>

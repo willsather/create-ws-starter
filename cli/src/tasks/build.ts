@@ -1,10 +1,11 @@
 import { execa } from "execa";
 
-import { getPackageManager } from "../utils/package-manager";
+import type { PackageManager } from "../utils/package-manager";
 
-export const buildProject = async (projectDir: string) => {
-  const pkgManager = getPackageManager();
-
+export const buildProject = async (
+  projectDir: string,
+  pkgManager: PackageManager,
+) => {
   try {
     await execa(pkgManager, ["run", "build"], { cwd: projectDir });
     return "Built project";

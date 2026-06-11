@@ -1,10 +1,11 @@
 import { execa } from "execa";
 
-import { getPackageManager } from "../utils/package-manager";
+import type { PackageManager } from "../utils/package-manager";
 
-export const installDependencies = async (projectDir: string) => {
-  const pkgManager = getPackageManager();
-
+export const installDependencies = async (
+  projectDir: string,
+  pkgManager: PackageManager,
+) => {
   try {
     await execa(pkgManager, ["install"], { cwd: projectDir });
     return "Installed dependencies";

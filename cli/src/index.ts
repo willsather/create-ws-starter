@@ -20,16 +20,27 @@ const main = async () => {
     `${chalk.hex("#bbf7d0").underline("create-ws-starter")} is built by ${chalk.hex("#bbf7d0").underline("https://sather.ws")}`,
   );
 
-  const { appName, useTurborepo } = await runCli();
+  const {
+    appName,
+    useTurborepo,
+    install,
+    git,
+    build,
+    overwrite,
+    packageManager,
+    nonInteractive,
+  } = await runCli();
 
   const [scopedAppName, appDir] = parseNameAndPath(appName);
 
   const projectDir = await createProject({
     projectName: appDir,
     useTurborepo,
+    overwrite,
+    nonInteractive,
   });
 
-  await p.tasks([
+  const tasks: Parameters<typeof p.tasks>[0] = [
     {
       title: "Configuring project...",
       task: async () => {
@@ -44,25 +55,36 @@ const main = async () => {
         return "Configured project";
       },
     },
-    {
+  ];
+
+  if (install) {
+    tasks.push({
       title: "Installing dependencies...",
       task: async () => {
-        return await installDependencies(projectDir);
+        return await installDependencies(projectDir, packageManager);
       },
-    },
-    {
+    });
+  }
+
+  if (build) {
+    tasks.push({
       title: "Building project...",
       task: async () => {
-        return await buildProject(projectDir);
+        return await buildProject(projectDir, packageManager);
       },
-    },
-    {
+    });
+  }
+
+  if (git) {
+    tasks.push({
       title: "Initializing Git...",
       task: async () => {
         return await initializeGit(projectDir);
       },
-    },
-  ]);
+    });
+  }
+
+  await p.tasks(tasks);
 
   outro(`${chalk.hex("#bbf7d0")("now go and ship")}`);
 

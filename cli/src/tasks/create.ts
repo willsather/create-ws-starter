@@ -10,11 +10,15 @@ import { cloneRepository } from "./git";
 export interface CreateProjectOptions {
   projectName: string;
   useTurborepo: boolean;
+  overwrite: boolean;
+  nonInteractive: boolean;
 }
 
 export const createProject = async ({
   projectName,
   useTurborepo,
+  overwrite,
+  nonInteractive,
 }: CreateProjectOptions) => {
   const projectDir = path.resolve(process.cwd(), projectName);
 
@@ -28,6 +32,16 @@ export const createProject = async ({
         s.message(
           `${chalk.cyan.bold(projectName)} exists but is empty, continuing...\n`,
         );
+    } else if (overwrite) {
+      // clear the directory and continue without prompting
+      fs.emptyDirSync(projectDir);
+      s.message(`Cleared ${chalk.cyan.bold(projectName)}, continuing...\n`);
+    } else if (nonInteractive) {
+      s.stop(
+        `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(projectName)} already exists and isn't empty.`,
+      );
+      cancel("Pass `--overwrite` to clear the directory and continue.");
+      process.exit(1);
     } else {
       s.stop(
         `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(projectName)} already exists and isn't empty.`,
