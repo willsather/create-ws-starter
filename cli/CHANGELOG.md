@@ -1,5 +1,11 @@
 # create-ws-starter
 
+## 0.1.0
+
+### Minor Changes
+
+- 176256e: Make the CLI fully non-interactive / AI-native. Every prompt now has a flag (`--turborepo`, `--pm`, `--no-install`, `--no-build`, `--no-git`, `--overwrite`, `-y/--yes`) and the CLI skips prompts automatically when there is no TTY. Added an `llms.txt`.
+
 ## 0.0.5
 
 ### Patch Changes
