@@ -3,8 +3,8 @@
   "compilerOptions": {
     "allowJs": true,
     "composite": false,
-    "downlevelIteration": true,
     "incremental": true,
+    "ignoreDeprecations": "6.0",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
