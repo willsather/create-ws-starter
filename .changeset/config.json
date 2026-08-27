@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@ws/www", "@ws/ui", "@ws/typescript-config", "@ws/vitest-config"]
+  "ignore": ["@ws/web", "@ws/ui", "@ws/typescript-config", "@ws/vitest-config"]
 }

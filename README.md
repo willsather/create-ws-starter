@@ -31,9 +31,10 @@ This project also has some configured some tools like:
 
 ## Applications
 
-Located under `/apps`, you will find an application.
+The repository includes two applications:
 
-- `www`: the website built using [Next.js](https://nextjs.org/)
+- `cli`: the `create-ws-starter` command-line interface
+- `web`: the website built using [Next.js](https://nextjs.org/)
 
 ## Packages
 

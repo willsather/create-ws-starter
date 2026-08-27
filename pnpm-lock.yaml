@@ -140,7 +140,7 @@ importers:
         specifier: 7.0.2
         version: 7.0.2
 
-  www:
+  web:
     dependencies:
       '@radix-ui/react-slot':
         specifier: 1.3.3
