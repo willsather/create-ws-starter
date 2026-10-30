@@ -13,6 +13,7 @@
     "start:web": "turbo start --filter=@ws/web",
     "clean": "turbo clean && rm -rf node_modules",
     "test": "turbo test",
+    "typecheck": "turbo typecheck",
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "changeset": "changeset",
@@ -20,14 +21,14 @@
     "version-packages": "changeset version && pnpm i --no-frozen-lockfile && git add ."
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.10",
-    "@changesets/cli": "3.0.1",
+    "@biomejs/biome": "2.6.3",
+    "@changesets/cli": "3.0.3",
     "@types/jest": "30.0.0",
-    "@types/node": "26.3.0",
+    "@types/node": "26.6.5",
     "@ws/typescript-config": "workspace:*",
-    "turbo": "2.10.12"
+    "turbo": "2.11.10"
   },
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@12.16.1",
   "engines": {
     "node": "26.x"
   }

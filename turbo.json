@@ -20,6 +20,9 @@
     },
     "test": {
       "dependsOn": ["@ws/vitest-config#build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
     }
   }
 }

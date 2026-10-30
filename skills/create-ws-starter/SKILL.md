@@ -1,4 +1,5 @@
 ---
+
 name: create-ws-starter
 description: Scaffold a new Next.js app or Turborepo monorepo with the create-ws-starter CLI. Use when the user wants to bootstrap a new project with batteries-included tooling (Tailwind, shadcn/ui, Biome, Vitest). Always run it non-interactively with flags so it never blocks on a prompt.
 ---
@@ -22,16 +23,16 @@ npx create-ws-starter@latest <dir> --yes [flags]
 
 Every parameter is a flag — never rely on prompts:
 
-| Flag | Effect | Default |
-| --- | --- | --- |
-| `<dir>` (positional) | App name + directory to create. Lowercase, `-`/`_` only. `.` = current dir. Scoped (`@scope/app`) supported. | `my-ws-app` |
-| `--turborepo` | Scaffold a Turborepo monorepo (requires pnpm) instead of a single Next.js app | Next.js app |
-| `--pm <manager>` | Package manager: `npm`, `pnpm`, `yarn`, `bun` | the invoking package manager |
-| `--no-install` | Skip installing dependencies | installs |
-| `--no-build` | Skip the build step | builds |
-| `--no-git` | Skip `git init` | inits git |
-| `--overwrite` | Clear the target dir if it exists and is non-empty | aborts |
-| `-y, --yes` | Skip all prompts (non-interactive) | inferred when no TTY |
+| Flag                 | Effect                                                                                                       | Default                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| `<dir>` (positional) | App name + directory to create. Lowercase, `-`/`_` only. `.` = current dir. Scoped (`@scope/app`) supported. | `my-ws-app`                  |
+| `--turborepo`        | Scaffold a Turborepo monorepo (requires pnpm) instead of a single Next.js app                                | Next.js app                  |
+| `--pm <manager>`     | Package manager: `npm`, `pnpm`, `yarn`, `bun`                                                                | the invoking package manager |
+| `--no-install`       | Skip installing dependencies                                                                                 | installs                     |
+| `--no-build`         | Skip the build step                                                                                          | builds                       |
+| `--no-git`           | Skip `git init`                                                                                              | inits git                    |
+| `--overwrite`        | Clear the target dir if it exists and is non-empty                                                           | aborts                       |
+| `-y, --yes`          | Skip all prompts (non-interactive)                                                                           | inferred when no TTY         |
 
 ## Examples
 

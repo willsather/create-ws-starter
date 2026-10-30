@@ -9,9 +9,9 @@ The CLI downloads templates from GitHub repositories:
 
 ## Getting Started
 
-   ```shell
-   pnpm create ws-starter
-   ```
+```shell
+pnpm create ws-starter
+```
 
 ## Non-interactive usage
 
@@ -25,17 +25,17 @@ npx create-ws-starter@latest my-app --yes
 
 ### Options
 
-| Flag | Description | Default |
-| --- | --- | --- |
-| `[dir]` | App name + directory to create (`.` = current dir, scoped names supported) | `my-ws-app` |
-| `--turborepo` | Scaffold a Turborepo monorepo instead of a single Next.js app (requires pnpm) | Next.js app |
-| `--pm <manager>` | Package manager: `npm`, `pnpm`, `yarn`, `bun` | invoking package manager |
-| `--no-install` | Skip installing dependencies | installs |
-| `--no-build` | Skip building the project | builds |
-| `--no-git` | Skip initializing a git repository | inits git |
-| `--overwrite` | Clear the target directory if it exists and is not empty | aborts |
-| `-y, --yes` | Skip all prompts (non-interactive) | inferred when no TTY |
-| `-v, --version` | Print the version | |
-| `-h, --help` | Print help | |
+| Flag             | Description                                                                   | Default                  |
+| ---------------- | ----------------------------------------------------------------------------- | ------------------------ |
+| `[dir]`          | App name + directory to create (`.` = current dir, scoped names supported)    | `my-ws-app`              |
+| `--turborepo`    | Scaffold a Turborepo monorepo instead of a single Next.js app (requires pnpm) | Next.js app              |
+| `--pm <manager>` | Package manager: `npm`, `pnpm`, `yarn`, `bun`                                 | invoking package manager |
+| `--no-install`   | Skip installing dependencies                                                  | installs                 |
+| `--no-build`     | Skip building the project                                                     | builds                   |
+| `--no-git`       | Skip initializing a git repository                                            | inits git                |
+| `--overwrite`    | Clear the target directory if it exists and is not empty                      | aborts                   |
+| `-y, --yes`      | Skip all prompts (non-interactive)                                            | inferred when no TTY     |
+| `-v, --version`  | Print the version                                                             |                          |
+| `-h, --help`     | Print help                                                                    |                          |
 
 For agents, see the [llms.txt](https://create.sather.ws/llms.txt).

@@ -4,7 +4,6 @@
     "allowJs": true,
     "composite": false,
     "incremental": true,
-    "ignoreDeprecations": "6.0",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,

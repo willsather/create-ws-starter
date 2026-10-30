@@ -5,9 +5,9 @@ scaffolding setup with batteries included `tailwind`, `shadcn/ui`, `biome`, and 
 
 ## Usage
 
-   ```shell 
-   pnpm create ws-starter
-   ```
+```shell
+pnpm create ws-starter
+```
 
 ## Getting Started
 

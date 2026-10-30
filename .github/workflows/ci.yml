@@ -28,6 +28,12 @@ jobs:
           pnpm run build
           echo "::notice title=🛠️ Build::Complete"
 
+      - name: Test
+        run: pnpm run test
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
       - name: Lint
         id: lint
         run: |

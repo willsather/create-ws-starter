@@ -3,8 +3,8 @@ import { removeTrailingSlash } from "./trailing-slash";
 const validationRegExp =
   /^(?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/;
 
-export const validateAppName = (rawInput: string) => {
-  const input = removeTrailingSlash(rawInput);
+export const validateAppName = (rawInput: string | undefined) => {
+  const input = removeTrailingSlash(rawInput ?? "");
   const paths = input.split("/");
 
   // If the first part is an "@", it's a scoped package

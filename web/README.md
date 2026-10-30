@@ -42,7 +42,8 @@ This starter uses the [Flags SDK](https://flags-sdk.dev/) to abstract feature fl
 Toolbar](https://vercel.com/docs/vercel-toolbar)
 
 1. Generate `FLAGS_TOKEN`
-    ```bash
+
+   ```bash
    node -e "console.log(crypto.randomBytes(32).toString('base64url'))"
    ```
 2. Add to [`env.local`](./.env.local)
