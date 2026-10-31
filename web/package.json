@@ -16,14 +16,13 @@
     "@vercel/toolbar": "0.2.7",
     "@ws/ui": "workspace:*",
     "class-variance-authority": "0.7.1",
-    "clsx": "2.1.1",
+    "cn": "0.5.0",
     "flags": "4.4.0",
     "geist": "1.8.2",
     "lucide-react": "1.63.0",
     "next": "16.4.3",
     "react": "19.3.1",
-    "react-dom": "19.3.1",
-    "tailwind-merge": "3.7.0"
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
